@@ -1,0 +1,31 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Receiver</title>
+</head>
+<body>
+    <div id="test">-------</div>
+    <script>
+        // Listen for messages from main.js
+        window.addEventListener("message", (event) => {
+            // Ensure the message is from a trusted source if necessary
+            const message = event.data;
+            document.getElementById("test").textContent = message;
+        });
+    </script>
+</body>
+</html> -->
+
+<html style="overflow: hidden">
+<div id="test">-</div>
+<script type="text/javascript">
+		window.addEventListener('message', function(e) {
+			// state라는 태그 밸류를 보냈으니 아래 형태로 받는다
+			var state = e.data.state; 
+			// 위의 id test 라는 곳의 텍스트로 적용한다
+			document.getElementById("test").innerText = state;
+		})
+</script>
+</html>

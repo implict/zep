@@ -1,0 +1,35 @@
+<html style="overflow: hidden">
+	<head>
+		<style type="text/css">
+			.widget-wrapper {
+				margin-top: 0px;
+				font-family: sans-serif, Arial;
+				border-radius: 8px;
+				background-color: #fff;
+				border: 3px solid #6758ff;
+				font-size: 30px;
+				font-weight: bold;
+				text-align: center;
+				max-height: 80px;
+				height: 100%;
+				position: relative;
+			}
+			#state {
+                position: absolute; /* 부모 요소(.widget-wrapper)를 기준으로 정렬 */
+                top: 50%; /* 위에서 50% 아래로 이동 */
+                left: 50%; /* 왼쪽에서 50% 오른쪽으로 이동 */
+                transform: translate(-50%, -50%); /* 요소의 중심을 기준으로 정렬 */
+            }
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.addEventListener("message", function (e) {
+				document.getElementById("state").innerText = e.data.state;
+			});
+		</script>
+		<div class="widget-wrapper">
+			<div id="state">-</div>
+		</div>
+	</body>
+</html>
