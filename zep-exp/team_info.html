@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .team {
+            font-weight: bold;
+        }
+        .player-list {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>현재 팀: <span class="team" id="team">NONE</span></div>
+    <div class="player-list">
+        <div>레드팀: <span id="red-players">없음</span></div>
+        <div>블루팀: <span id="blue-players">없음</span></div>
+    </div>
+    <script>
+        // 위젯에서 메시지를 받을 때 실행
+        window.addEventListener("message", function (event) {
+            const data = event.data;
+            if (data.team) {
+                document.getElementById("team").textContent = data.team;
+            }
+            if (data.RED) {
+                document.getElementById("red-players").textContent = data.RED.join(", ") || "없음";
+            }
+            if (data.BLUE) {
+                document.getElementById("blue-players").textContent = data.BLUE.join(", ") || "없음";
+            }
+        });
+    </script>
+</body>
+</html>
